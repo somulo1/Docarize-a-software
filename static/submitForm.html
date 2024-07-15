@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubmitAsciiArt</title>
+</head>
+<body>
+    <h1>Ascii Art Web</h1>
+    <h2>Create Your Own Ascii Art</h2>
+    <form action="\submit-ascii-art" method="POST">
+        <label for="style">Banner Style:</label> 
+        <select id="style" name="style"> 
+            <option value="standard">standard</option> 
+            <option value="shadow">shadow</option>
+            <option value="thinkertoy">thinkertoy</option>
+        </select><br><br>
+        <label for="text">Input Text:</label>
+        <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
+        <input type="submit" value="Print">
+    </form>
+    
+</body>
+</html>
