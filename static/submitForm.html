@@ -19,14 +19,11 @@
         <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
         <input type="submit" value="Print">
     </form>
-   <section>
-
-       <body>
-           <h1>Your Ascii Art</h1>
-           <p><pre>{{ .AsciiArt }}</pre></p>
-        </body>
+    {{if .AsciiArt}}
+    <section>
+        <h1>Your Ascii Art</h1>
+        <p><pre>{{ .AsciiArt }}</pre></p>
     </section>
-    
-    
+    {{end}}
 </body>
 </html>
