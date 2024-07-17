@@ -6,22 +6,23 @@ import (
 	"strings"
 )
 
-func AsciiArt(input, bnStyle string) string {
+func AsciiArt(input, bnStyle string) (string, string) {
+	var err string
 	// Exits program if input is empty
 	if input == "" {
-		return ""
+		return "", err
 	}
 
 	// Exits program if input contains characters outside of the banner file (except '\n')
 	if !IsPrintable(input) {
-		fmt.Println(`Input should only contain PRINTABLE ASCII characters or '\n'`)
-		return ""
+		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
+		return "", err
 	}
 
 	// Exits program if input contains non-printable ascii characters with escape sequences (except '\n')
 	if EscapeSequence(input) {
-		fmt.Println(`Input should only contain PRINTABLE ASCII characters or '\n'`)
-		return ""
+		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
+		return "", err
 	}
 	// // Make new line characters consistent
 	// input = strings.ReplaceAll(input, "\\n", "\n")
@@ -29,19 +30,17 @@ func AsciiArt(input, bnStyle string) string {
 	// Split input into printable lines at the '\n' character
 	words := strings.Split(input, "\r\n")
 
-	fmt.Printf("%q\n", words)
-
 	// Set and check if banner file is valid
 	if !ValidFile(bnStyle) {
-		fmt.Println("Incorrect file name, program only accepts thinkertoy.txt, standard.txt or shadow.txt")
-		return ""
+		err = "Incorrect file name, program only accepts thinkertoy.txt, standard.txt or shadow.txt"
+		return "", err
 	}
 
 	// Read banner file
-	content, err := os.ReadFile("banner-files/"+ bnStyle)
-	if err != nil {
-		fmt.Printf("Error reading %s\n", bnStyle)
-		return ""
+	content, fileErr := os.ReadFile("banner-files/" + bnStyle)
+	if fileErr != nil {
+		err = fmt.Sprintf("Error reading %s\n", bnStyle)
+		return "", err
 	}
 
 	// Split and store the file contents line-by-line in a slice string depending on the banner file
@@ -51,9 +50,9 @@ func AsciiArt(input, bnStyle string) string {
 		slices = strings.Split(string(content), "\r\n")
 	} else {
 		// Lines in standard.txt and shadow.txt banner files are separated by "\n"
-		slices = strings.Split(string(content), "\n") 
+		slices = strings.Split(string(content), "\n")
 	}
-	
+
 	// Print ASCII ART and return output string for testing
-	return HandleWords(slices, words)
+	return HandleWords(slices, words), err
 }
