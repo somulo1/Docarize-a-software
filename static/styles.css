@@ -1,41 +1,42 @@
 body {
-  font-family: monospace;  /* Set a monospaced font for a console-like feel */
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  background-color: #222;  /* Set a dark background color */
-  color: #fff;  /* Set white text color */
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 600px;  /* Set a maximum width for the container */
-}
-
-.header {
-  text-align: center;  /* Center the header text */
-  margin-bottom: 10px;  /* Add some space below the header */
-}
-
-.input-group, .button-group {
-  margin-bottom: 10px;  /* Add space between input groups and button group */
-}
-
-.input-group label {
-  display: block;  /* Make labels display on a new line */
-  margin-bottom: 5px;  /* Add space below labels */
-}
-
-.button-group button {
-  background-color: #4CAF50;  /* Green color for buttons */
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;  /* Add rounded corners to buttons */
-  margin-right: 10px;  /* Add space between buttons */
-}
-
-.button-group button:last-child {
-  margin-right: 0;  /* Remove margin from the last button */
-}
+    font-family: monospace;  /* Set a monospaced font for a console-like feel */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    background-color: #d4ca37;  /* Set a dark background color */
+    color: #fafaf1;  /* Set white text color */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;  /* Set a maximum width for the container */
+  }
+  
+  .header {
+    text-align: center;  /* Center the header text */
+    margin-bottom: 10px;  /* Add some space below the header */
+  }
+  
+  .input-group, .button-group {
+    margin-bottom: 10px;  /* Add space between input groups and button group */
+  }
+  
+  .input-group label {
+    display: block;  /* Make labels display on a new line */
+    margin-bottom: 5px;  /* Add space below labels */
+  }
+  
+  .button-group button {
+    background-color: #4CAF50;  /* Green color for buttons */
+    color: rgb(84, 28, 105);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;  /* Add rounded corners to buttons */
+    margin-right: 10px;  /* Add space between buttons */
+  }
+  
+  .button-group button:last-child {
+    margin-right: 0;  /* Remove margin from the last button */
+  }
+  
