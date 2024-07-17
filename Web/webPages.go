@@ -1,17 +1,11 @@
 package Web
 
 import (
-	"fmt"
 	"net/http"
 	"text/template"
 
-
 	"web/Lib"
 )
-
-// func FormHandler(w http.ResponseWriter, r *http.Request) {
-// 	http.ServeFile(w, r, "static/submitForm.html")
-// }
 
 func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	var bnStyle, inputStr string
