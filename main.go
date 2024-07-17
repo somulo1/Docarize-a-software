@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	// End program should user provide more than one argument
-	if len(os.Args) > 1 {
+	if len(os.Args) != 1 {
 		fmt.Println("Too many arguments")
 		return
 	}
