@@ -13,32 +13,33 @@
       <h2>Create Your Own Ascii Art</h2>
     </div>
     <div class="center-box">
-      <label for="style">Select Banner:</label>
-      <select id="style" name="style">
-          <option value="standard">standard</option>
-          <option value="shadow">shadow</option>
-          <option value="thinkertoy">thinkertoy</option>
-      </select><br><br>
-    </div>
-    <div class="right-box" >
-      <label for="text">Input Text:</label>
-      <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
-    </div>
-    <div class="right-box" align = "center" >
         <form action="\submit-ascii-art" method="POST">
-            <input type="submit" value="Submit" id="submitButton">
-          </form>
-          
+            <select id="style" name="style">
+                <option value="standard">standard</option>
+                <option value="shadow">shadow</option>
+                <option value="thinkertoy">thinkertoy</option>
+            </select><br><br>
+            <label for="style">Select Banner:</label>
+            <div class="right-box" >
+              <label for="text">Input Text:</label>
+              <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
+              <div class="right-box" >
+                  <input type="submit" value="Submit" id="submitButton">
+                                    
+              </div>
+            </div>
+
+        </form>
     </div>
    </div>
   
   <section>
-    {{if}}
+  
       <body>
           <h1>Your Ascii Art</h1>
           <p><pre>{{ .AsciiArt }}</pre></p>
       </body>
-      {{end}}
+     
   </section>
 </body>
 </html>
