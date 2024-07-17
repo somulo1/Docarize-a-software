@@ -1,42 +1,33 @@
 body {
     font-family: monospace;  /* Set a monospaced font for a console-like feel */
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container {
-    background-color: #d4ca37;  /* Set a dark background color */
-    color: #fafaf1;  /* Set white text color */
-    padding: 20px;
+    margin: 0;  /* Remove default body margin */
+}
+
+.container {
+    background-color: #030303;  /* Set a dark background color */
+    color: #fffff2;  /* Set white text color */
+    padding: 100px;
     margin: 0 auto;
-    max-width: 600px;  /* Set a maximum width for the container */
-  }
-  
-  .header {
-    text-align: center;  /* Center the header text */
-    margin-bottom: 10px;  /* Add some space below the header */
-  }
-  
-  .input-group, .button-group {
-    margin-bottom: 10px;  /* Add space between input groups and button group */
-  }
-  
-  .input-group label {
-    display: block;  /* Make labels display on a new line */
-    margin-bottom: 5px;  /* Add space below labels */
-  }
-  
-  .button-group button {
-    background-color: #4CAF50;  /* Green color for buttons */
-    color: rgb(84, 28, 105);
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;  /* Add rounded corners to buttons */
-    margin-right: 10px;  /* Add space between buttons */
-  }
-  
-  .button-group button:last-child {
-    margin-right: 0;  /* Remove margin from the last button */
-  }
-  
+    max-width: 1000px;
+    border-radius: 10px;  /* Add rounded corners to the container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);  /* Add subtle shadow */
+    display: flex;  /* Use flexbox for layout */
+}
+
+.left-box, .center-box, .right-box {
+    flex: 1;  /* Make each box flex to fill available space equally */
+    padding: 10px;  /* Add internal padding */
+    border: 2px solid rgb(90, 90, 90);  /* Add white border with thickness */
+    border-radius: 5px;  /* Add rounded corners to boxes */
+    margin: 5px;  /* Add some margin between boxes */
+    text-align: center; /* Center content within each box */
+}
+
+.container:after {  /* Add horizontal bottom line */
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(26, 22, 22);
+    margin-top: 20px;  /* Add space above the line */
+}
