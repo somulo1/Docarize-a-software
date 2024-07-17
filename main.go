@@ -15,6 +15,6 @@ func main() {
 	}
 
 	http.HandleFunc("/", Web.SubmitFormHandler)
-	http.HandleFunc("/generate", Web.SubmitFormHandler)
+	http.HandleFunc("/submit-ascii-art", Web.SubmitFormHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

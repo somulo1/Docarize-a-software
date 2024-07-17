@@ -23,7 +23,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		output, err := Lib.AsciiArt(inputStr, bnStyle+".txt")
 
 		if err != "" {
-			tmpl = template.Must(template.ParseFiles("static/printer.html"))
+			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
 			tmpl.Execute(w, struct{ Issue string }{Issue: err})
 		} else {
 			//Safely load html template from submitForm.html
