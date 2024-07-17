@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SubmitAsciiArt</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Ascii Art Web</h1>
-    <h2>Create Your Own Ascii Art</h2>
-    <form action="\submit-ascii-art" method="POST">
-        <label for="style">Banner Style:</label> 
-        <select id="style" name="style"> 
-            <option value="standard">standard</option> 
-            <option value="shadow">shadow</option>
-            <option value="thinkertoy">thinkertoy</option>
-        </select><br><br>
-        <label for="text">Input Text:</label>
-        <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
-        <input type="submit" value="Print">
-    </form>
-   <section>
-
-       <body>
-           <h1>Your Ascii Art</h1>
-           <p><pre>{{ .AsciiArt }}</pre></p>
-        </body>
-    </section>
-    
-    
+    <h1 align = "center">ASCI-ART WEB</h1><br><br>
+  <div class="container">
+    <div class="left-box" >
+      <h2>Create Your Own Ascii Art</h2>
+    </div>
+    <div class="center-box">
+      <label for="style">Select Banner:</label>
+      <select id="style" name="style">
+          <option value="standard">standard</option>
+          <option value="shadow">shadow</option>
+          <option value="thinkertoy">thinkertoy</option>
+      </select><br><br>
+    </div>
+    <div class="right-box" >
+      <label for="text">Input Text:</label>
+      <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
+    </div>
+    <hr>  <div class="lower-content">  
+      </div>
+  </div>
+  
+  <section>
+    {{if}}
+      <body>
+          <h1>Your Ascii Art</h1>
+          <p><pre>{{ .AsciiArt }}</pre></p>
+      </body>
+      {{end}}
+  </section>
 </body>
 </html>
+
