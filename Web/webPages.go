@@ -1,8 +1,10 @@
 package Web
 
 import (
+	"fmt"
 	"net/http"
 	"text/template"
+
 	"web/Lib"
 )
 
@@ -12,15 +14,18 @@ import (
 
 func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	var bnStyle, inputStr string
-	if r.Method == http.MethodPost {
+	fmt.Println(r.Method)
+	if r.Method == http.MethodGet {
+		tmpl := template.Must(template.ParseFiles("static/submitForm.html"))
+		tmpl.Execute(w, "")
+	} else if r.Method == http.MethodPost {
 
 		bnStyle = r.FormValue("style")
 		inputStr = r.FormValue("inputStr")
 
-		//fmt.Printf("%q\n", inputStr)
+		// fmt.Printf("%q\n", inputStr)
 
 		output := Lib.AsciiArt(inputStr, bnStyle+".txt")
-		//output = strings.ReplaceAll(output, "\n", "<br>")
 
 		tmpl := template.Must(template.ParseFiles("static/submitForm.html"))
 		tmpl.Execute(w, struct{ AsciiArt string }{AsciiArt: output})
