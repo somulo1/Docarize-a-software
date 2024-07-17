@@ -8,7 +8,7 @@
 <body>
     <h1>Ascii Art Web</h1>
     <h2>Create Your Own Ascii Art</h2>
-    <form action="\submit-ascii-art" method="POST">
+    <form action="/generate" method="POST">
         <label for="style">Banner Style:</label> 
         <select id="style" name="style"> 
             <option value="standard">standard</option> 
@@ -19,11 +19,9 @@
         <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
         <input type="submit" value="Print">
     </form>
-    {{if .AsciiArt}}
     <section>
         <h1>Your Ascii Art</h1>
-        <p><pre>{{ .AsciiArt }}</pre></p>
+        <p><pre>{{ .AsciiArt}}</pre></p>
     </section>
-    {{end}}
 </body>
 </html>
