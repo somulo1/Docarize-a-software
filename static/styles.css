@@ -8,7 +8,7 @@ body {
     color: #fffff2;  /* Set white text color */
     padding: 100px;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1050px;
     border-radius: 10px;  /* Add rounded corners to the container */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);  /* Add subtle shadow */
     display: flex;  /* Use flexbox for layout */
@@ -31,3 +31,14 @@ body {
     background-color: rgb(26, 22, 22);
     margin-top: 20px;  /* Add space above the line */
 }
+#submitButton {
+    width: 100px;  /* Set the button width */
+    height: 150px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    padding: 10px 0px;  /* Add padding for spacing around the text */
+    background-color: #3f443f;  /* Set a background color */
+    color: white;  /* Set text color */
+    border: none;  /* Remove default border */
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;  /* Indicate clickable behavior */
+  }
