@@ -37,7 +37,7 @@ func AsciiArt(input, bnStyle string) (string, string) {
 	}
 
 	// Read banner file
-	content, fileErr := os.ReadFile("banner-files/"+ bnStyle)
+	content, fileErr := os.ReadFile("banner-files/" + bnStyle)
 	if fileErr != nil {
 		err = fmt.Sprintf("Error reading %s\n", bnStyle)
 		return "", err
@@ -50,9 +50,9 @@ func AsciiArt(input, bnStyle string) (string, string) {
 		slices = strings.Split(string(content), "\r\n")
 	} else {
 		// Lines in standard.txt and shadow.txt banner files are separated by "\n"
-		slices = strings.Split(string(content), "\n") 
+		slices = strings.Split(string(content), "\n")
 	}
-	
+
 	// Print ASCII ART and return output string for testing
 	return HandleWords(slices, words), err
 }

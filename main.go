@@ -14,9 +14,7 @@ func main() {
 		return
 	}
 
-	// http.HandleFunc("/", Web.FormHandler)
 	http.HandleFunc("/", Web.SubmitFormHandler)
 	http.HandleFunc("/generate", Web.SubmitFormHandler)
-	//http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
