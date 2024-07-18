@@ -1,38 +1,37 @@
 package Web
 
 import (
-	"fmt"
 	"net/http"
 	"text/template"
-
 
 	"web/Lib"
 )
 
-// func FormHandler(w http.ResponseWriter, r *http.Request) {
-// 	http.ServeFile(w, r, "static/submitForm.html")
-// }
-
 func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	var bnStyle, inputStr string
-	fmt.Println(r.Method)
+	var tmpl *template.Template
 	if r.Method == http.MethodGet {
-		tmpl := template.Must(template.ParseFiles("static/submitForm.html"))
-		tmpl.Execute(w, "")
+		tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
+		tmpl.Execute(w, nil)
 	} else if r.Method == http.MethodPost {
 
 		bnStyle = r.FormValue("style")
 		inputStr = r.FormValue("inputStr")
 
-		// fmt.Printf("%q\n", inputStr)
-		// fmt.Printf("%q\n", inputStr)
+		//fmt.Printf("%q\n", inputStr)
 
-		output := Lib.AsciiArt(inputStr, bnStyle+".txt")
-		// output = strings.ReplaceAll(output, "\n", "<br>")
+		output, err := Lib.AsciiArt(inputStr, bnStyle+".txt")
 
-		tmpl := template.Must(template.ParseFiles("static/submitForm.html"))
-		tmpl.Execute(w, struct{ AsciiArt string }{AsciiArt: output})
+		if err != "" {
+			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+			tmpl.Execute(w, struct{ Issue string }{Issue: err})
 		} else {
-			http.Error(w, "Invalid Request Method!", http.StatusMethodNotAllowed)
+			//Safely load html template from submitForm.html
+			tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
+			tmpl.Execute(w, struct{ AsciiArt string }{AsciiArt: output})
+		}
+
+	} else {
+		http.Error(w, "Invalid Request Method!", http.StatusMethodNotAllowed)
 	}
 }
