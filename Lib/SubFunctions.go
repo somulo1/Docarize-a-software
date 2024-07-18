@@ -1,6 +1,7 @@
 package Lib
 
 import (
+	"crypto/sha256"
 	"fmt"
 	"strings"
 )
@@ -75,5 +76,30 @@ func ValidFile(file string) bool {
 			status = true
 		}
 	}
+	return status
+}
+
+func fileIntegrity(file []byte) bool {
+	var status bool
+
+	//Generate hash for banner file
+	hash := sha256.New()
+	hash.Write(file)
+	curr := fmt.Sprintf("%x", hash.Sum(nil))
+
+	//Hashes of various banner files when unadultarated
+	standard := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
+	shadow := "26b94d0b134b77e9fd23e0360bfd81740f80fb7f6541d1d8c5d85e73ee550f73"
+	thinkertoy := "64285e4960d199f4819323c4dc6319ba34f1f0dd9da14d07111345f5d76c3fa3"
+
+	checksums := []string{standard, shadow, thinkertoy}
+
+	//Compare whether current hash matches with any of the checksums above
+	for _, hsh := range checksums {
+		if curr == hsh {
+			status = true
+		}
+	}
+	
 	return status
 }
