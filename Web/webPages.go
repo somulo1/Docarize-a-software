@@ -35,7 +35,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		} else {
 			//Safely load html template from submitForm.html
 			tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
-			tmpl.Execute(w, struct{ AsciiArt string }{AsciiArt: output})
+			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
 		}
 
 		// Label any requests other than 'GET' and 'POST' requests as 'invalid requests'
