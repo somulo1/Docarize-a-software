@@ -18,8 +18,6 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		bnStyle = r.FormValue("style")
 		inputStr = r.FormValue("inputStr")
 
-		//fmt.Printf("%q\n", inputStr)
-
 		output, err := Lib.AsciiArt(inputStr, bnStyle+".txt")
 
 		if err != "" {
