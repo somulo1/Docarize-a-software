@@ -24,8 +24,6 @@ func AsciiArt(input, bnStyle string) (string, string) {
 		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
 		return "", err
 	}
-	// // Make new line characters consistent
-	// input = strings.ReplaceAll(input, "\\n", "\n")
 
 	// Split input into printable lines at the '\n' character
 	words := strings.Split(input, "\r\n")
@@ -40,6 +38,12 @@ func AsciiArt(input, bnStyle string) (string, string) {
 	content, fileErr := os.ReadFile("banner-files/" + bnStyle)
 	if fileErr != nil {
 		err = fmt.Sprintf("Error reading %s\n", bnStyle)
+		return "", err
+	}
+
+	// Check contents of file for adulteration
+	if !fileIntegrity(content) {
+		err += fmt.Sprintf("%s is modified or corrupted", bnStyle)
 		return "", err
 	}
 
