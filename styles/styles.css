@@ -1,0 +1,62 @@
+body {
+    font-family: monospace;  /* Set a monospaced font for a console-like feel */
+    margin: 0;  /* Remove default body margin */
+    background-color: #ebeaea;
+}
+
+.container {
+    background-color: rgb(110, 106, 110);  /* Set a dark background color */
+    color: #e0e0bb;  /* Set white text color */
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1050px;
+    border-radius: 10px;  /* Add rounded corners to the container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);  /* Add subtle shadow */
+    display: flex;  /* Use flexbox for layout */
+    /* flex-direction: column; */
+}
+
+.left-box, .center-box, .right-box {
+    flex: 1;  /* Make each box flex to fill available space equally */
+    padding: 10px;  /* Add internal padding */
+    border: 2px solid rgb(145, 124, 124);  /* Add white border with thickness */
+    border-radius: 5px;  /* Add rounded corners to boxes */
+    margin: 5px;  /* Add some margin between boxes */
+    text-align: center; /* Center content within each box */
+}
+
+textarea {
+    width: 100%;
+}
+
+section {
+    border: 20px solid rgb(83, 83, 85);
+    border-radius: 10px;
+    padding: 20px;
+max-width: 1050px;
+max-height: 400px;
+margin: 10px auto;
+   overflow: auto;
+}
+
+
+
+#submitButton {
+    width: 100%;  /* Set the button width */
+    height: 60px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    padding: 10px 0px;  /* Add padding for spacing around the text */
+    background-color: #3f443f;  /* Set a background color */
+    color: white;  /* Set text color */
+    border: none;  /* Remove default border */
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;  /* Indicate clickable behavior */
+  }
+
+  @media only screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+  }
