@@ -100,6 +100,6 @@ func fileIntegrity(file []byte) bool {
 			status = true
 		}
 	}
-	
+
 	return status
 }
