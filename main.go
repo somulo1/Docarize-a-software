@@ -14,6 +14,7 @@ func main() {
 		return
 	}
 
+	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
 	http.HandleFunc("/", Web.SubmitFormHandler)
 	http.HandleFunc("/ascii-art", Web.SubmitFormHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
