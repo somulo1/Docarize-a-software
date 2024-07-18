@@ -13,7 +13,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Serve form at initial visit of site
 	if r.Method == http.MethodGet {
-		tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
+		tmpl = template.Must(template.ParseFiles("static/placeHolder.html"))
 		tmpl.Execute(w, nil)
 
 		// Serve form and ascii-art/error after form submission
