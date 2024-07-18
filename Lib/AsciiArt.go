@@ -24,8 +24,6 @@ func AsciiArt(input, bnStyle string) (string, string) {
 		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
 		return "", err
 	}
-	// // Make new line characters consistent
-	// input = strings.ReplaceAll(input, "\\n", "\n")
 
 	// Split input into printable lines at the '\n' character
 	words := strings.Split(input, "\r\n")
