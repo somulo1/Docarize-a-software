@@ -41,6 +41,12 @@ func AsciiArt(input, bnStyle string) (string, string) {
 		return "", err
 	}
 
+	// Check contents of file for adulteration
+	if !fileIntegrity(content) {
+		err += fmt.Sprintf("%s is modified or corrupted", bnStyle)
+		return "", err
+	}
+
 	// Split and store the file contents line-by-line in a slice string depending on the banner file
 	var slices []string
 	if bnStyle == "thinkertoy.txt" {
