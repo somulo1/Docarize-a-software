@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SubmitAsciiArt</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <h1 align = "center">ASCI-ART WEB</h1><br><br>
@@ -14,12 +14,13 @@
     </div>
     <div class="center-box">
         <form action="\ascii-art" method="POST">
+            <label for="style">Select Banner:</label> <br>
             <select id="style" name="style">
                 <option value="standard">standard</option>
                 <option value="shadow">shadow</option>
                 <option value="thinkertoy">thinkertoy</option>
             </select><br><br>
-            <label for="style">Select Banner:</label>
+            
             <div class="right-box" >
               <label for="text">Input Text:</label>
               <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
@@ -32,15 +33,12 @@
         </form>
     </div>
    </div>
-  
+   <h1 align="center">😟Sorry, We Have An Error😟</h1>
   <section>
-  
-      <body>
-          <h1>😟Sorry, We Have An Error😟</h1>
-          <p><pre>{{ .Issue }}</pre></p>
-      </body>
-     
+    <p><pre>{{ .Issue }}</pre></p>
   </section>
 </body>
 </html>
+
+
 

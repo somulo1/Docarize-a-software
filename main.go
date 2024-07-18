@@ -17,7 +17,7 @@ func main() {
 	}
 
 	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
-	http.HandleFunc("/", Web.SubmitFormHandler) // Serve home page
+	http.HandleFunc("/", Web.SubmitFormHandler)          // Serve home page
 	http.HandleFunc("/ascii-art", Web.SubmitFormHandler) // Serve /ascii-art at POST requests
-	log.Fatal(http.ListenAndServe(":8080", nil)) // Defines host port
+	log.Fatal(http.ListenAndServe(":8080", nil))         // Defines host port
 }
