@@ -36,3 +36,17 @@ func TestHandleCharacters(t *testing.T) {
 		t.Errorf("TestHandleCharaters Failed!")
 	}
 }
+
+func TestEscapeSequence(t *testing.T) {
+	subject := []string{"\\a", "\\b", "\\t", "\\v", "\\f"}
+
+	for _, str := range subject {
+		if !EscapeSequence(str) {
+			t.Errorf("Got: %t", false)
+			t.Errorf("Expected: %t", true)
+			t.Errorf("TestEscapeSequence Failed!")
+			t.FailNow()
+		}
+	}
+
+}
