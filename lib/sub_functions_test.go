@@ -1,6 +1,8 @@
 package lib
 
 import (
+	"crypto/sha256"
+	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -74,5 +76,23 @@ func TestValidFile(t *testing.T) {
 			t.Errorf("TestValidFile Failed!")
 			t.FailNow()
 		}
+	}
+}
+
+func TestFileIntegrity(t *testing.T) {
+	file, _ := os.ReadFile("../banner-files/standard.txt")
+
+	//Generate hash for banner file
+	hash := sha256.New()
+	hash.Write(file)
+	got := fmt.Sprintf("%x", hash.Sum(nil))
+
+	standard := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
+
+	// Compare hashes
+	if got != standard {
+		t.Errorf("Got: %t", false)
+		t.Errorf("Expected: %t", true)
+		t.Errorf("TestValidFile Failed!")
 	}
 }
