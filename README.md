@@ -37,7 +37,7 @@
 | |  | |        | | | |         
 | |__| |   ___  | | | |   ___   
 |  __  |  / _ \ | | | |  / _ \  
-| |  | | |  __/ | | | | | (_) | 
+| |  | | |  __/ | | | | | (_) |
 |_|  |_|  \___| |_| |_|  \___/  
                                 
                                 
@@ -52,5 +52,9 @@
 <p>___________________________________________________</p>
 <p><a href="https://learn.zone01kisumu.ke/git/davodhiambo">David Jesse Odhiambo</a></p>
 <p>Apprentice Software Developer, Zone01 Kisumu.</p>
+<p>___________________________________________________</p>
+<p><a href="https://learn.zone01kisumu.ke/git/somulo">Samuel Omulo</a></p>
+<p>Apprentice Software Developer, Zone01 Kisumu.</p>
+
 
 ---
