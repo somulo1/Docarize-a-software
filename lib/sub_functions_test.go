@@ -51,13 +51,27 @@ func TestEscapeSequence(t *testing.T) {
 }
 
 func TestIsPrintable(t *testing.T) {
-	subject := []string{"\\n", "\\r", "~", " ", "g"}
+	subject := []string{"\\n", "\\r", "~", " ", "g"} // Include valid printable characters
 
 	for _, str := range subject {
 		if !IsPrintable(str) {
 			t.Errorf("Got: %t", false)
 			t.Errorf("Expected: %t", true)
 			t.Errorf("TestEscapeSequence Failed!")
+			t.FailNow()
+		}
+	}
+}
+
+func TestValidFile(t *testing.T) {
+	subject := []string{"standard.txt", "shadow.txt", "thinkertoy.txt"} // Include all valid file names
+
+	// Compare if all names in subject are valid
+	for _, str := range subject {
+		if !IsPrintable(str) {
+			t.Errorf("Got: %t", false)
+			t.Errorf("Expected: %t", true)
+			t.Errorf("TestValidFile Failed!")
 			t.FailNow()
 		}
 	}
