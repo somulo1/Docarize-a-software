@@ -30,6 +30,7 @@ textarea {
 }
 
 section {
+    color: black;
     border: 20px solid rgb(83, 83, 85);
     border-radius: 10px;
     padding: 20px;
