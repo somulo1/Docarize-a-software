@@ -13,6 +13,10 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Serve form at initial visit of site
 	if r.Method == http.MethodGet {
+		if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
+			http.Error(w, "404: Page not found", http.StatusNotFound)
+			return
+		}
 		tmpl = template.Must(template.ParseFiles("static/placeHolder.html"))
 		tmpl.Execute(w, nil)
 
@@ -33,7 +37,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
-			//Safely load html template from submitForm.html
+			// Safely load html template from submitForm.html
 			tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
 			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
 		}
