@@ -1,4 +1,4 @@
-package Lib
+package lib
 
 import (
 	"fmt"
@@ -8,10 +8,6 @@ import (
 
 func AsciiArt(input, bnStyle string) (string, string) {
 	var err string
-	// Exits program if input is empty
-	if input == "" {
-		return "", err
-	}
 
 	// Exits program if input contains characters outside of the banner file (except '\n')
 	if !IsPrintable(input) {
