@@ -48,5 +48,17 @@ func TestEscapeSequence(t *testing.T) {
 			t.FailNow()
 		}
 	}
+}
 
+func TestIsPrintable(t *testing.T) {
+	subject := []string{"\\n", "\\r", "~", " ", "g"}
+
+	for _, str := range subject {
+		if !IsPrintable(str) {
+			t.Errorf("Got: %t", false)
+			t.Errorf("Expected: %t", true)
+			t.Errorf("TestEscapeSequence Failed!")
+			t.FailNow()
+		}
+	}
 }
