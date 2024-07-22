@@ -1,4 +1,4 @@
-package Lib
+package lib
 
 import (
 	"crypto/sha256"

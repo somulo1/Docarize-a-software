@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"text/template"
 
-	"web/Lib"
+	"web/lib"
 )
 
 func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
@@ -28,7 +28,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		inputStr = r.FormValue("inputStr")
 
 		// Run AsciiArt function with banner style selected and input string
-		output, err := Lib.AsciiArt(inputStr, bnStyle+".txt")
+		output, err := lib.AsciiArt(inputStr, bnStyle+".txt")
 
 		// Should there occur an error, serve errorPrinter.html with the nature of error
 		if err != "" {
