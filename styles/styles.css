@@ -1,5 +1,6 @@
 body {
     font-family: monospace;  /* Set a monospaced font for a console-like feel */
+    font-size: 16px;
     margin: 0;  /* Remove default body margin */
     background-color: #ebeaea;
 }
@@ -7,7 +8,7 @@ body {
 .container {
     background-color: rgb(110, 106, 110);  /* Set a dark background color */
     color: #e0e0bb;  /* Set white text color */
-    padding: 50px;
+    padding: 20px;
     margin: 0 auto;
     max-width: 1050px;
     border-radius: 10px;  /* Add rounded corners to the container */
@@ -25,14 +26,15 @@ body {
     text-align: center; /* Center content within each box */
 }
 
-.left-box h2 {
-    height: 10em;
-    width: 10em;
-    margin: auto;
+.left-box {
+    max-width: 200px;
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
+    margin: auto;
+    border: 2px solid rgb(145, 124, 124);
+    border-radius: 10px;
 }
 
 section {
@@ -44,9 +46,18 @@ section {
     margin: 10px auto;
     overflow: auto;
 }
+select {
+    padding: 10px 0px;
+    border-radius: 5px;  /* Add rounded corners */
+    text-align: center;
+    font-size: 16px;
+    background-color: #ebeaea;
+    width: 25%;  /* Set the options width */
+    height: 50px;
+}
 
 #submitButton {
-    width: 100%;  /* Set the button width */
+    width: 40%;  /* Set the button width */
     height: 60px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
     padding: 10px 0px;  /* Add padding for spacing around the text */
@@ -58,8 +69,14 @@ section {
 }
 
 @media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
    .container {
        display: flex;
        flex-direction: column;
    }
+   .left-box {
+        max-width: 100%;
+    }
 }
