@@ -2,12 +2,12 @@ body {
     font-family: monospace;  /* Set a monospaced font for a console-like feel */
     font-size: 16px;
     margin: 0;  /* Remove default body margin */
-    background-color: #ebeaea;
+    background-color: #ebeaea88;
 }
 
 .container {
     background-color: rgb(110, 106, 110);  /* Set a dark background color */
-    color: #e0e0bb;  /* Set white text color */
+    color: black;  /* Set white text color */
     padding: 20px;
     margin: 0 auto;
     max-width: 1050px;
@@ -34,6 +34,7 @@ textarea {
     width: 95%;
     margin: auto;
     border: 2px solid rgb(145, 124, 124);
+    background-color: #ebeaea;
     border-radius: 10px;
 }
 
@@ -46,6 +47,7 @@ section {
     margin: 10px auto;
     overflow: auto;
 }
+
 select {
     padding: 10px 0px;
     border-radius: 5px;  /* Add rounded corners */
@@ -53,17 +55,31 @@ select {
     font-size: 16px;
     background-color: #ebeaea;
     width: 25%;  /* Set the options width */
-    height: 50px;
+    height: 45px;
 }
 
 #submitButton {
     width: 40%;  /* Set the button width */
-    height: 60px;  /* Set the button height */
+    height: 50px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
     padding: 10px 0px;  /* Add padding for spacing around the text */
     background-color: #3f443f;  /* Set a background color */
     color: white;  /* Set text color */
     border: none;  /* Remove default border */
+    border-radius: 5px;  /* Add rounded corners */
+    cursor: pointer;  /* Indicate clickable behavior */
+}
+
+#submitButton:hover {
+    width: 40%;  /* Set the button width */
+    height: 50px;  /* Set the button height */
+    font-size: 16px;  /* Adjust text size within the button */
+    font-weight: bold;
+    padding: 10px 0px;  /* Add padding for spacing around the text */
+    background-color: white;  /* Set a background color */
+    color: #3f443f;  /* Set text color */
+    border: none;  /* Remove default border */
+    border: solid 5px #3f443f; ; 
     border-radius: 5px;  /* Add rounded corners */
     cursor: pointer;  /* Indicate clickable behavior */
 }
