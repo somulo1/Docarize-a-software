@@ -105,9 +105,9 @@ func TestCheckOs(t *testing.T) {
 	for i := 0; i < len(got); i++ {
 		if got[i] != expected[i] {
 			t.Errorf("Got %s at index %d", got[i], i)
-		t.Errorf("Expected %s at index %d", expected[i], i)
-		t.Errorf("TestCheckOs Failed!")
-		t.FailNow()
+			t.Errorf("Expected %s at index %d", expected[i], i)
+			t.Errorf("TestCheckOs Failed!")
+			t.FailNow()
 		}
-	}	
+	}
 }
