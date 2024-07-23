@@ -16,16 +16,16 @@
         <form action="\ascii-art" method="POST">
             <label for="style">Select Banner:</label> <br>
             <select id="style" name="style">
-                <option value="standard">standard</option>
-                <option value="shadow">shadow</option>
-                <option value="thinkertoy">thinkertoy</option>
+              <option value="standard">Standard</option>
+              <option value="shadow">Shadow</option>
+              <option value="thinkertoy">Thinkertoy</option>
             </select><br><br>
             
             <div class="right-box" >
               <label for="text">Input Text:</label>
               <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required></textarea><br><br>
               <div class="right-box" >
-                  <input type="submit" value="Submit" id="submitButton">
+                <input type="submit" value="Print" id="submitButton">
                                     
               </div>
             </div>
@@ -35,7 +35,8 @@
    </div>
    <h1 align="center">😟Sorry, We Have An Error😟</h1>
   <section>
-    <p><pre>{{ .Issue }}</pre></p>
+    <h1 align="center">{{ .Code}}</h1>
+    <h2 align="center"><pre>{{ .Issue }}</pre></h2>
   </section>
 </body>
 </html>
