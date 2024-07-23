@@ -2,6 +2,7 @@ package Web
 
 import (
 	"net/http"
+	"strings"
 	"text/template"
 
 	"web/lib"
@@ -14,7 +15,9 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	// Serve form at initial visit of site
 	if r.Method == http.MethodGet {
 		if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
-			http.Error(w, "404: Page not found", http.StatusNotFound)
+			w.WriteHeader( http.StatusNotFound)
+			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+			tmpl.Execute(w, struct{ Issue string; Code int }{Issue: "404: Page not found", Code:http.StatusNotFound})
 			return
 		}
 		tmpl = template.Must(template.ParseFiles("static/placeHolder.html"))
@@ -33,7 +36,21 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		// Should there occur an error, serve errorPrinter.html with the nature of error
 		if err != "" {
 			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
-			tmpl.Execute(w, struct{ Issue string }{Issue: err})
+			
+			if strings.Contains(err, "PRINTABLE ASCII") {
+				w.WriteHeader(http.StatusBadRequest)
+				tmpl.Execute(w, struct{ Issue string; Code int }{Issue: err, Code:http.StatusBadRequest})
+			}
+			if strings.Contains(err, "Error reading") {
+				w.WriteHeader(http.StatusNotFound)
+				tmpl.Execute(w, struct{ Issue string; Code int }{Issue: err, Code:http.StatusNotFound})
+			}
+			if strings.Contains(err, "modified") {
+				w.WriteHeader(http.StatusInternalServerError)
+				tmpl.Execute(w, struct{ Issue string; Code int }{Issue: err, Code:http.StatusInternalServerError})
+			}
+			// tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+			// tmpl.Execute(w, struct{ Issue string }{Issue: err})
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
