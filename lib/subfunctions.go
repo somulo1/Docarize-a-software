@@ -113,5 +113,5 @@ func checkOS() []string {
 		sep = []string{"\r\n", "\n"}
 	}
 
-
+	return sep
 }
