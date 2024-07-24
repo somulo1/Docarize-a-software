@@ -11,13 +11,13 @@ func AsciiArt(input, bnStyle string) (string, string) {
 
 	// Exits program if input contains characters outside of the banner file (except '\n')
 	if !IsPrintable(input) {
-		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
+		err = `Input should only contain PRINTABLE ASCII characters`
 		return "", err
 	}
 
 	// Exits program if input contains non-printable ascii characters with escape sequences (except '\n')
 	if EscapeSequence(input) {
-		err = `Input should only contain PRINTABLE ASCII characters or '\n'`
+		err = `Input should only contain PRINTABLE ASCII characters`
 		return "", err
 	}
 
