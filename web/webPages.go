@@ -12,8 +12,19 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	var bnStyle, inputStr string
 	var tmpl *template.Template
 
-	// Serve form at initial visit of site
-	if r.Method == http.MethodGet {
+	// Label any requests other than 'GET' and 'POST' requests as 'invalid requests'
+	if !(r.Method == http.MethodGet || r.Method == http.MethodPost) {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+
+		tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+		tmpl.Execute(w, struct {
+			Code  int
+			Issue string
+		}{Issue: "Invalid Request Method!", Code: http.StatusMethodNotAllowed})
+		return
+
+		// Serve form at initial visit of site
+	} else if r.Method == http.MethodGet {
 		if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
 			w.WriteHeader(http.StatusNotFound)
 			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
@@ -61,8 +72,6 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 					Code  int
 				}{Issue: err, Code: http.StatusInternalServerError})
 			}
-			// tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
-			// tmpl.Execute(w, struct{ Issue string }{Issue: err})
 
 			// If no error print ascii-art below form on submitForm.html
 		} else {
@@ -70,9 +79,5 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 			tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
 			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
 		}
-
-		// Label any requests other than 'GET' and 'POST' requests as 'invalid requests'
-	} else {
-		http.Error(w, "Invalid Request Method!", http.StatusMethodNotAllowed)
 	}
 }
