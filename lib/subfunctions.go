@@ -84,13 +84,17 @@ func fileIntegrity(file []byte) bool {
 	hash := sha256.New()
 	hash.Write(file)
 	curr := fmt.Sprintf("%x", hash.Sum(nil))
+	fmt.Println(curr)
 
 	//Hashes of various banner files when unadultarated
 	standard := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
+	standardW := "73bdb3b25135c3ca16d910bd7fa23a1c3d1d08097b59054b2129e7a42ea65c75"
 	shadow := "26b94d0b134b77e9fd23e0360bfd81740f80fb7f6541d1d8c5d85e73ee550f73"
+	shadowW := "617c65ecec88bb54eeacb75aa6d8920c73bddb15a8d49f1b58cca1d63897034f"
 	thinkertoy := "64285e4960d199f4819323c4dc6319ba34f1f0dd9da14d07111345f5d76c3fa3"
+	thinkertoyW := "64285e4960d199f4819323c4dc6319ba34f1f0dd9da14d07111345f5d76c3fa3"
 
-	checksums := []string{standard, shadow, thinkertoy}
+	checksums := []string{standard, standardW, shadow, shadowW, thinkertoy, thinkertoyW}
 
 	//Compare whether current hash matches with any of the checksums above
 	for _, hsh := range checksums {
