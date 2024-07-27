@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubmitAsciiArt</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <h1 align = "center">ASCI-ART WEB</h1><br><br>
+  <div class="container">
+    <div class="left-box" >
+      <h2>Create Your Own Ascii Art</h2>
+    </div>
+    <div class="center-box">
+        <form action="\ascii-art" method="POST">
+            <label for="style">Select Banner:</label> <br>
+            <select id="style" name="style">
+                <option value="standard">Standard</option>
+                <option value="shadow">Shadow</option>
+                <option value="thinkertoy">Thinkertoy</option>
+            </select><br><br>
+            
+            <div class="right-box" >
+              <label for="text">Input Text:</label>
+              <textarea id="inputStr" name="inputStr" rows="6" cols="50" placeholder="enter text" required>{{ .Input }}</textarea><br><br>
+              <div class="right-box" >
+                  <input type="submit" value="Print" id="submitButton">
+                                    
+              </div>
+            </div>
+
+        </form>
+    </div>
+   </div>
+   <h1 align="center">YOUR ASCII ART</h1>
+  <section>   
+    <p><pre>{{ .AsciiArt }}</pre></p>
+  </section>
+</body>
+</html>
+
