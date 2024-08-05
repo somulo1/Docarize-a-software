@@ -34,7 +34,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 			}{Issue: "404: Page not found", Code: http.StatusNotFound})
 			return
 		}
-		tmpl = template.Must(template.ParseFiles("templates/placeHolder.html"))
+		tmpl = template.Must(template.ParseFiles("templates/index.html"))
 		tmpl.Execute(w, nil)
 
 		// Serve form and ascii-art/error after form submission
