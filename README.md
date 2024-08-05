@@ -1,7 +1,7 @@
 <h1>Stylize</h1>
 
 <h2>Description</h2>
-<p>Ascii-Art-Web is now available as a web application! The web version of the tool generates ASCII art banners based on user-provided text input directly on the website, instead of using the command line. It continues to use predefined banner templates to create visually appealing representations of the input text.</p>
+<p>Ascii-Art-stylize is now available as a web application! The web version of the tool generates ASCII art banners based on user-provided text input directly on the website, instead of using the command line. It continues to use predefined banner templates to create visually appealing representations of the input text.</p>
 
 <h2>Features</h2>
 <ul>
@@ -44,7 +44,7 @@
 </pre>
 
 <h2>Dependencies</h2>
-<p>This tool requires no external dependencies. It is a standalone executable written in Go for the backend, with a simple frontend implemented in HTML/CSS/JavaScript.</p>
+<p>This tool requires no external dependencies. It is a standalone executable written in Go for the backend, with a simple frontend implemented in HTML and CSS</p>
 
 <h2>Authors</h2>
 <p><a href="https://learn.zone01kisumu.ke/git/johnotieno0">John Paul Nyunja</a></p>
