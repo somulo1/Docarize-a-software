@@ -93,22 +93,22 @@ select {
     justify-content: center;
 }
 
-.back button {
-    width: 40%;  /* Set the button width */
+.back a {
+    width: 30%;  /* Set the button width */
+    min-width: 150px;
     height: 50px;  /* Set the button height */
     font-size: 16px;  /* Adjust text size within the button */
-    padding: 10px 0px;  /* Add padding for spacing around the text */
+    padding: .2em .6em .2em .6em;  /* Add padding for spacing around the text */
     background-color: #3f443f;  /* Set a background color */
     color: white;  /* Set text color */
     border: none;  /* Remove default border */
     border-radius: 5px;  /* Add rounded corners */
     cursor: pointer;  /* Indicate clickable behavior */
-}
-
-a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    align-content: center;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px) {

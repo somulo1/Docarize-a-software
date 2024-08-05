@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-This ascii-art-web software is compatible with the following operating system versions:
+This stylize software is compatible with upto the following operating system versions:
 
 | Version      | Supported                     |
 | ------------ | ----------------------------- |
@@ -21,7 +21,8 @@ This ascii-art-web software is compatible with the following operating system ve
 
 ## Reporting a Vulnerability
 
-Older versions of Linux, Ubuntu, and Parrot OS can also use this software version provided they address the newline handling correctly. Newline handling varies across different machines. When handling Thinkertoy banner files, ensure that both `\n` (LF) and `\r\n` (CRLF) are handled seamlessly, depending on the platform. Windows machines use `\r\n` for line endings.
-The listed versions above are officially supported. Newer versions may also be compatible but should adhere to the same newline handling standards discussed.
+Older versions of Linux, Ubuntu,windows and Parrot OS can also use this software version provided they address the newline handling correctly. Newline handling varies across different machines. When handling Thinkertoy banner files, ensure that both `\n` (LF) and `\r\n` (CRLF) are handled seamlessly, depending on the platform. Windows machines use `\r\n` for line endings.
+The listed versions above are officially supported. Newer versions may also be compatible but should adhere to the same newline handling standards discussed. 
+Please report any vulnerability to our Developers.
 
 

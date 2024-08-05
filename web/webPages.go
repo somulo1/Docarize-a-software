@@ -25,6 +25,15 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Serve form at initial visit of site
 	} else if r.Method == http.MethodGet {
+		if r.URL.Path == "/ascii-art" {
+			w.WriteHeader(http.StatusMethodNotAllowed)
+			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
+			tmpl.Execute(w, struct {
+				Issue string
+				Code  int
+			}{Issue: "405: Method not allowed", Code: http.StatusMethodNotAllowed})
+			return
+		}
 		if r.URL.Path != "/" {
 			w.WriteHeader(http.StatusNotFound)
 			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))

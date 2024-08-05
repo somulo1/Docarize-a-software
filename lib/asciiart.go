@@ -24,12 +24,6 @@ func AsciiArt(input, bnStyle string) (string, string) {
 	// Split input into printable lines at the '\n' character
 	words := strings.Split(input, "\r\n")
 
-	// Set and check if banner file is valid
-	if !ValidFile(bnStyle) {
-		err = "Incorrect file name, program only accepts thinkertoy.txt, standard.txt or shadow.txt"
-		return "", err
-	}
-
 	// Read banner file
 	content, fileErr := os.ReadFile("banner-files/" + bnStyle)
 	if fileErr != nil {
