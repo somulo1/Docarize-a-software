@@ -25,7 +25,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Serve form at initial visit of site
 	} else if r.Method == http.MethodGet {
-		if r.URL.Path != "/" && r.URL.Path != "/ascii-art" {
+		if r.URL.Path != "/" {
 			w.WriteHeader(http.StatusNotFound)
 			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
 			tmpl.Execute(w, struct {
