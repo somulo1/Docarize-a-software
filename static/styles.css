@@ -32,6 +32,7 @@ body {
 
 textarea {
     width: 95%;
+    max-width: 700px;
     margin: auto;
     border: 2px solid rgb(145, 124, 124);
     background-color: #ebeaea;
