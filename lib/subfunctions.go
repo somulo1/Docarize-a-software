@@ -84,7 +84,6 @@ func fileIntegrity(file []byte) bool {
 	hash := sha256.New()
 	hash.Write(file)
 	curr := fmt.Sprintf("%x", hash.Sum(nil))
-	fmt.Println(curr)
 
 	//Hashes of various banner files when unadultarated
 	standard := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
