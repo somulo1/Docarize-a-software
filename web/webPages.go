@@ -16,7 +16,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	if !(r.Method == http.MethodGet || r.Method == http.MethodPost) {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 
-		tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+		tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
 		tmpl.Execute(w, struct {
 			Code  int
 			Issue string
@@ -27,14 +27,14 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	} else if r.Method == http.MethodGet {
 		if r.URL.Path != "/" {
 			w.WriteHeader(http.StatusNotFound)
-			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
 			tmpl.Execute(w, struct {
 				Issue string
 				Code  int
 			}{Issue: "404: Page not found", Code: http.StatusNotFound})
 			return
 		}
-		tmpl = template.Must(template.ParseFiles("static/placeHolder.html"))
+		tmpl = template.Must(template.ParseFiles("templates/placeHolder.html"))
 		tmpl.Execute(w, nil)
 
 		// Serve form and ascii-art/error after form submission
@@ -49,7 +49,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Should there occur an error, serve errorPrinter.html with the nature of error
 		if err != "" {
-			tmpl = template.Must(template.ParseFiles("static/errorPrinter.html"))
+			tmpl = template.Must(template.ParseFiles("templates/errorPrinter.html"))
 
 			if strings.Contains(err, "PRINTABLE ASCII") {
 				w.WriteHeader(http.StatusBadRequest)
@@ -76,7 +76,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 			// If no error print ascii-art below form on submitForm.html
 		} else {
 			// Safely load html template from submitForm.html
-			tmpl = template.Must(template.ParseFiles("static/submitForm.html"))
+			tmpl = template.Must(template.ParseFiles("templates/submitForm.html"))
 			tmpl.Execute(w, struct{ AsciiArt, Input string }{AsciiArt: output, Input: inputStr})
 		}
 	}
