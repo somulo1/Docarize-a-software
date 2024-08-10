@@ -1,1 +1,11 @@
-From 
+FROM golang:1.20-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN go build -o dockerize
+
+EXPOSE 8000
+
+CMD [ "./dockerize" ]
