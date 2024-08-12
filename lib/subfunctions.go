@@ -3,7 +3,6 @@ package lib
 import (
 	"crypto/sha256"
 	"fmt"
-	"runtime"
 	"strings"
 )
 
@@ -80,12 +79,12 @@ func ValidFile(file string) bool {
 func fileIntegrity(file []byte) bool {
 	var status bool
 
-	//Generate hash for banner file
+	// Generate hash for banner file
 	hash := sha256.New()
 	hash.Write(file)
 	curr := fmt.Sprintf("%x", hash.Sum(nil))
 
-	//Hashes of various banner files when unadultarated
+	// Hashes of various banner files when unadultarated
 	standard := "e194f1033442617ab8a78e1ca63a2061f5cc07a3f05ac226ed32eb9dfd22a6bf"
 	standardW := "73bdb3b25135c3ca16d910bd7fa23a1c3d1d08097b59054b2129e7a42ea65c75"
 	shadow := "26b94d0b134b77e9fd23e0360bfd81740f80fb7f6541d1d8c5d85e73ee550f73"
@@ -95,7 +94,7 @@ func fileIntegrity(file []byte) bool {
 
 	checksums := []string{standard, standardW, shadow, shadowW, thinkertoy, thinkertoyW}
 
-	//Compare whether current hash matches with any of the checksums above
+	// Compare whether current hash matches with any of the checksums above
 	for _, hsh := range checksums {
 		if curr == hsh {
 			status = true
@@ -103,18 +102,4 @@ func fileIntegrity(file []byte) bool {
 	}
 
 	return status
-}
-
-func checkOS() []string {
-	var sep []string
-	os := runtime.GOOS // Identify operating system
-
-	// Set separators according to operating system
-	if os == "windows" {
-		sep = []string{"\n", "\r\n"}
-	} else {
-		sep = []string{"\r\n", "\n"}
-	}
-
-	return sep
 }
