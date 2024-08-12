@@ -39,13 +39,12 @@ func AsciiArt(input, bnStyle string) (string, string) {
 
 	// Split and store the file contents line-by-line in a slice string depending on the banner file
 	var slices []string
-	sep := checkOS()
 
 	// Lines in thinkertoy.txt banner file are separated by "\r\n" or "\n" depending on operating system
 	if bnStyle == "thinkertoy.txt" {
-		slices = strings.Split(string(content), sep[0])
+		slices = strings.Split(string(content), "\r\n")
 	} else {
-		slices = strings.Split(string(content), sep[1])
+		slices = strings.Split(string(content), "\n")
 	}
 
 	// Print ASCII ART and return output string for testing
