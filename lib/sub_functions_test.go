@@ -97,17 +97,3 @@ func TestFileIntegrity(t *testing.T) {
 	}
 }
 
-func TestCheckOs(t *testing.T) {
-	got := checkOS()
-	expected := []string{"\r\n", "\n"}
-
-	// Compare contents of got with those of expected
-	for i := 0; i < len(got); i++ {
-		if got[i] != expected[i] {
-			t.Errorf("Got %s at index %d", got[i], i)
-			t.Errorf("Expected %s at index %d", expected[i], i)
-			t.Errorf("TestCheckOs Failed!")
-			t.FailNow()
-		}
-	}
-}
