@@ -25,10 +25,15 @@
     <pre>From Gitea:<br>git clone https://learn.zone01kisumu.ke/git/davodhiambo/ascii-art-web-dockerize.git<br><br>From Github:<br>git clone https://github.com/somulo1/Docarize-a-software.git</pre>
     <li>Navigate to the project directory.</li>
     <pre>cd ascii-art-web-dockerize</pre>
-    <li>Run the following command to start the web server:</li>
-    <pre>go run .</pre>
-    <li>Open your web browser and navigate to <code>http://localhost:8080</code> to access the web application.</li>
+    <li>Run the following command to build docker image:</li>
+    <pre>docker build -t &lt;name-of-image&gt; .</pre>
+    <li>Run the following command to run the docker image:</li>
+    <pre>docker run -p &lt;valid-port&gt;:8000 &lt;name-of-image&gt;</pre>
+    <li>Open your web browser and navigate to <code>http://localhost:&lt;valid-port&gt;</code> to access the web application.</li>
 </ol>
+
+<h2>Note</h2>
+<p>Valid port can be replaced with any port from 1024 to 49151</p>
 
 <h2>Example Usage</h2>
 <p>Visit the web application, input the text "Hello", and select the "standard" style to generate the following ASCII art:</p>
