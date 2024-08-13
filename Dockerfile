@@ -19,6 +19,9 @@ RUN go build -o dockerize
 # Multi-stage build: Start from a minimal base image
 FROM alpine:3.18.3
 
+# Install bash in the final image for runtime access
+RUN apk update && apk add --no-cache bash
+
 # Set a non-root user (if possible, for security)
 RUN adduser -D appuser
 USER appuser
