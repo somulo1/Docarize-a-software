@@ -5,7 +5,7 @@ FROM golang:1.20.14-alpine AS builder
 # Add metadata labels for the image
 LABEL version="1.0"
 LABEL description="Ascii Art Web deployed via containerization"
-LABEL maintainer="jesseomolo@gmail.com nyunja.jp@gmail.com mcomulosammy37@gmail.com"
+LABEL maintainer="jesseomolo@gmail.com, nyunja.jp@gmail.com, mcomulosammy37@gmail.com"
 
 # Set working directory inside the container
 WORKDIR /app
@@ -27,7 +27,7 @@ USER appuser
 WORKDIR /app
 
 # Copy the binary from the builder stage
-COPY --from=builder /app/dockerize .
+COPY --from=builder /app/. .
 
 # Expose the port on which the app runs
 EXPOSE 8000
